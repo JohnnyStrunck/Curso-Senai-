@@ -1,13 +1,9 @@
-let listaNumeros = [ 30 , 40 , 50 , 30 , 20]; // array
-listaNumeros.push(35) // inclui 1 numero
-listaNumeros.pop() // retira o ultimo numero incluido
-listaNumeros[3] = 10 // seleciona posicao e troca o numero
-console.log (listaNumeros)
-let i ;
-for ( i=0;i<=20;i++){
-    if(i % 2 == 0)
-    listaNumeros.push(i)
-    
+let quantidadeDias = Number(prompt("Digite quantos dias de temperatura você deseja"))
+let listaTemperatura = [];
+
+    for (let i=0;i<quantidadeDias;i++){
+         let temperatura =prompt("Qual temp do dia", (i+1))
+        listaTemperatura.push(temp)
+        
 }
-listaNumeros[5] = 15
-console.log(listaNumeros)
+    console.log(quantidadeDias)
