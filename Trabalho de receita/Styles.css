@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(receita.jpg);
+    background-size: auto;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-image: url(receita.jpg);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-decoration: underline;
+    
+    
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+  
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    
+}
+
+main {
+    width: 80%;
+    margin: 20px auto;
+    background-image: url(ab.jpg);
+}
+
+footer{
+    background-color: rgb(255, 255, 253);
+    text-decoration: underline;
+   
+    }
