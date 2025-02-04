@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechnoBit</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- link roboto (fonte) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- link js -->
+    <script src="script.js" defer></script>
+</head>
+<body class="corpo">
+    <header class="barra">
+        <!-- barra com título -->
+        <div class="titulo">
+            <h1>TechnoBit</h1>
+        </div>
+        <div class="imagens">    
+        <p>
+            <a href="carrinho/carrinho.html">
+                <img src="carImagem.png" alt="Car Image">
+            </a>
+        </p>
+            <img src="userImagem.png" alt="User Image">
+            
+        </div>
+    </header>
+<div class="container" style="text-align: center; margin-top: 500px; position: absolute; bottom: 0; left: 0;">
+    <div class="container" style="display: flex; justify-content: center; margin-top: 500px; position: absolute; bottom: 0; left: 0;">
+        <img src="gabinete.png" alt="" style="width: 80px; height: 80px; cursor: zoom-in; margin: 10px;" onclick="selecionarImagem(this)">
+        <img src="gabinete2.png" alt="" style="width: 80px; height: 80px; cursor: zoom-in; margin: 10px;" onclick="selecionarImagem(this)">
+        <img src="gabinete3.png" alt="" style="width: 80px; height: 80px; cursor: zoom-in; margin: 10px;" onclick="selecionarImagem(this)">
+        <img src="gabinete4.png" alt="" style="width: 80px; height: 80px; cursor: zoom-in; margin: 10px;" onclick="selecionarImagem(this)">
+        <img src="gabinete5.png" alt="" style="width: 80px; height: 80px; cursor: zoom-in; margin: 10px;" onclick="selecionarImagem(this)">
+        <img src="gabinete6.png" alt="" style="width: 80px; height: 80px; cursor: zoom-in; margin: 10px;" onclick="selecionarImagem(this)">
+    </div>
+</div>
+
+<script>
+    function selecionarImagem(img) {
+        img.style.border = "2px solid blue";
+        img.style.boxShadow = "0 0 10px blue";
+    }
+
+    document.addEventListener("click", function(event) {
+        if (event.target.tagName !== "IMG") {
+            var imgs = document.querySelectorAll("img");
+            imgs.forEach(function(img) {
+                img.style.border = "";
+                img.style.boxShadow = "";
+            });
+        }
+    });
+</script>   
+</div>
+
+<script>
+    function zoomIn(img) {
+        img.style.transform = "scale(1.5)";
+        img.style.transition = "transform 0.5s";
+        img.style.zIndex = "1";
+        img.style.position = "absolute";
+        img.style.top = "50%";
+        img.style.left = "50%";
+        img.style.transform = "translate(-50%, -50%) scale(1.5)";
+    }
+
+    function zoomOut(img) {
+        img.style.transform = "scale(1)";
+        img.style.transition = "transform 0.5s";
+        img.style.zIndex = "0";
+        img.style.position = "static";
+        img.style.top = "auto";
+        img.style.left = "auto";
+        img.style.transform = "translate(0, 0) scale(1)";
+    }
+
+    document.addEventListener("click", function(event) {
+        if (event.target.tagName !== "IMG") {
+            var imgs = document.querySelectorAll("img");
+            imgs.forEach(function(img) {
+                zoomOut(img);
+            });
+        }
+    });
+</script>
+</div>
+</div>
+</div>
+    
+    </div>
+</div>
+</div>
+
+<script>
+    function zoomIn(img) {
+        img.style.transform = "scale(1.5)";
+        img.style.transition = "transform 0.5s";
+    }
+
+    function zoomOut(img) {
+        img.style.transform = "scale(1)";
+        img.style.transition = "transform 0.5s";
+    }
+</script>
+        <div class="flag-lanc"> </div>
+    </div>
+</div>
+<main>
+        
+    </main>
+    <div class="col-sm-7 col-md-7 nopadding"></div>
+    <div class="areaFotoProduto">
+        <div class="flag-lanc"> </div>
+        
+        
+        
+</body>
+</html>
