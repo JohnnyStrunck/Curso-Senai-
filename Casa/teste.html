@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aluguel de Casas</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-bottom: 40px;
+    }
+    header {
+      width: 100%;
+      background: #004aad;
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 1.5px;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #add8e6;
+    }
+    main {
+      width: 90%;
+      max-width: 960px;
+      margin: 25px auto 0 auto;
+    }
+    section {
+      margin-bottom: 60px;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+      scroll-margin-top: 70px;
+    }
+    h2 {
+      color: #004aad;
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      border-bottom: 3px solid #004aad;
+      padding-bottom: 5px;
+    }
+    /* Home cards */
+    .cards {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .card {
+      background: #e6f0ff;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 3px solid #004aad;
+    }
+    .card-content {
+      padding: 15px 20px;
+      flex-grow: 1;
+    }
+    .card-content h3 {
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .card-content p {
+      font-size: 0.95rem;
+      color: #333;
+      min-height: 50px;
+    }
+    .card-content a.button {
+      margin-top: 15px;
+      text-align: center;
+      background: #004aad;
+      color: white;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      display: block;
+      transition: background 0.3s ease;
+    }
+    .card-content a.button:hover {
+      background: #00337a;
+    }
+    /* Casa individual */
+    .house-images {
+      width: 100%;
+      max-height: 360px;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .house-images img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .house-details {
+      margin-bottom: 30px;
+    }
+    .house-details h3 {
+      color: #222;
+      font-weight: 700;
+      margin-bottom: 5px;
+      font-size: 1.4rem;
+    }
+    .house-details p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #444;
+      margin-bottom: 12px;
+    }
+    .price {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #0077cc;
+      margin-bottom: 15px;
+    }
+    /* Form */
+    form {
+      background: #f0f7ff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: inset 0 3px 8px rgba(0,0,0,0.05);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #004aad;
+    }
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 16px;
+      border: 1.5px solid #99bce3;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+      font-family: inherit;
+    }
+    form textarea {
+      min-height: 100px;
+    }
+    form button {
+      background: #004aad;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background: #00337a;
+    }
+    /* Footer */
+    footer {
+      margin-top: auto;
+      background: #004aad;
+      color: white;
+      padding: 15px 0;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+    /* Responsive */
+    @media (max-width: 700px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Aluguel de Casas</h1>
+    <nav>
+      <a href="#home">Início</a>
+      <a href="#casa1">Casa 1</a>
+      <a href="#casa2">Casa 2</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Página Inicial -->
+    <section id="home" aria-label="Página inicial">
+      <h2>Casas Disponíveis para Aluguel</h2>
+      <div class="cards">
+        <article class="card" tabindex="0" aria-labelledby="casa1-title">
+          <img src="https://via.placeholder.com/280x180?text=Casa+1" alt="Foto ilustrativa da Casa 1" />
+          <div class="card-content">
+            <h3 id="casa1-title">Casa 1</h3>
+            <p>Descrição breve da Casa 1. Está aguardando suas informações específicas.</p>
+            <a href="#casa1" class="button" aria-label="Ver detalhes da Casa 1">Ver detalhes</a>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0" aria-labelledby="casa2-title">
+          <img src="https://via.placeholder.com/280x180?text=Casa+2" alt="Foto ilustrativa da Casa 2" />
+          <div class="card-content">
+            <h3 id="casa2-title">Casa 2</h3>
+            <p>Descrição breve da Casa 2. Está aguardando suas informações específicas.</p>
+            <a href="#casa2" class="button" aria-label="Ver detalhes da Casa 2">Ver detalhes</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Casa 1 -->
+    <section id="casa1" aria-label="Informações da Casa 1">
+      <h2>Casa 1</h2>
+      <div class="house-images" aria-label="Galeria de fotos da Casa 1">
+        <img src="https://via.placeholder.com/900x360?text=Imagem+Principal+Casa+1" alt="Foto principal da Casa 1" />
+        <!-- Você pode adicionar um carrossel de imagens futuramente aqui -->
+      </div>
+      <div class="house-details">
+        <h3>Nome da Casa 1</h3>
+        <p><strong>Endereço: </strong> Endereço da Casa 1 aqui.</p>
+        <p>Descrição detalhada da Casa 1. Aqui você pode inserir todas as informações que desejar, como número de quartos, banheiros, características do imóvel e arredores.</p>
+        <p class="price">Preço do aluguel: R$ 00.000,00</p>
+      </div>
+      <form aria-label="Formulário para entrar em contato sobre a Casa 1" onsubmit="return submitForm(event, 'Casa 1')">
+        <h3>Entre em contato para mais informações</h3>
+        <label for="nome1">Nome Completo</label>
+        <input type="text" id="nome1" name="nome1" required placeholder="Seu nome" />
+        
+        <label for="email1">Email</label>
+        <input type="email" id="email1" name="email1" required placeholder="seu@email.com" />
+        
+        <label for="mensagem1">Mensagem</label>
+        <textarea id="mensagem1" name="mensagem1" required placeholder="Escreva sua mensagem aqui..."></textarea>
+        
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <!-- Casa 2 -->
+    <section id="casa2" aria-label="Informações da Casa 2">
+      <h2>Casa 2</h2>
+      <div class="house-images" aria-label="Galeria de fotos da Casa 2">
+        <img src="https://via.placeholder.com/900x360?text=Imagem+Principal+Casa+2" alt="Foto principal da Casa 2" />
+        <!-- Você pode adicionar um carrossel de imagens futuramente aqui -->
+      </div>
+      <div class="house-details">
+        <h3>Nome da Casa 2</h3>
+        <p><strong>Endereço: </strong> Endereço da Casa 2 aqui.</p>
+        <p>Descrição detalhada da Casa 2. Aqui você pode inserir todas as informações que desejar, como número de quartos, banheiros, características do imóvel e arredores.</p>
+        <p class="price">Preço do aluguel: R$ 00.000,00</p>
+      </div>
+      <form aria-label="Formulário para entrar em contato sobre a Casa 2" onsubmit="return submitForm(event, 'Casa 2')">
+        <h3>Entre em contato para mais informações</h3>
+        <label for="nome2">Nome Completo</label>
+        <input type="text" id="nome2" name="nome2" required placeholder="Seu nome" />
+        
+        <label for="email2">Email</label>
+        <input type="email" id="email2" name="email2" required placeholder="seu@email.com" />
+        
+        <label for="mensagem2">Mensagem</label>
+        <textarea id="mensagem2" name="mensagem2" required placeholder="Escreva sua mensagem aqui..."></textarea>
+        
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2024 Aluguel de Casas. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    // Formulário simples: ao enviar, mostra alerta, limpa e evita envio real
+    function submitForm(event, casa) {
+      event.preventDefault();
+      const form = event.target;
+      const nome = form.querySelector('input[type="text"]').value.trim();
+      const email = form.querySelector('input[type="email"]').value.trim();
+      const mensagem = form.querySelector('textarea').value.trim();
+      if(!nome || !email || !mensagem) {
+        alert('Por favor, preencha todos os campos.');
+        return false;
+      }
+      alert(`Obrigado pelo contato sobre a ${casa}, ${nome}! Responderemos em breve por email.`);
+      form.reset();
+      return false; // impede envio real
+    }
+  </script>
+</body>
+</html>
+
